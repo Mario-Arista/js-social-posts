@@ -3,7 +3,7 @@
 const posts = [
     {
         id: 1,
-        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        content: "Non so perché l'ho fatto, non so perché mi sono divertito, e non so perché lo farò di nuovo.",
         media: "./img/post-1.png",
         author: {
             name: "Bart Simpson",
@@ -14,7 +14,7 @@ const posts = [
     },
     {
         id: 2,
-        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        content: "Lo sai mantenere un segreto? Io odio la disco. Non parlo d'altro da così tempo che ormai mi annoio da solo. Capisci? Sta diventando sempre più faticoso... .",
         media: "./img/post-2.png",
         author: {
             name: "Disco Stu",
@@ -25,7 +25,7 @@ const posts = [
     },
     {
         id: 3,
-        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        content: "Il mio Homer non è un comunista. Sarà pure un bugiardo, un maiale, un idiota, un comunista. Ma vi assicuro che non è una pornostar.",
         media: "./img/post-3.png",
         author: {
             name: "Nonno Simpson",
@@ -36,7 +36,7 @@ const posts = [
     },
     {
         id: 4,
-        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        content: "Figliolo, quando si partecipa ad un evento sportivo l'importante non è vincere o perdere, ma quanto ti ubriachi!",
         media: "./img/post-4.png",
         author: {
             name: "Homer Simpson",
@@ -47,7 +47,7 @@ const posts = [
     },
     {
         id: 5,
-        content: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        content: "L'episodio di ieri sera di Grattachecca e Fichetto è stato senza dubbio il peggiore che abbia mai visto. Per questo pochi minuti dopo ho espresso a tutto il mondo il mio disgusto via internet.",
         media: "./img/post-5.png",
         author: {
             name: "Uomo dei Fumetti",
@@ -78,7 +78,7 @@ posts.forEach(currentElement => {
             </div>
             <div class="post-text">${currentElement.content}</div>
             <div class="post-image">
-                <img src="${currentElement.media}" alt="">
+                <img src="${currentElement.media}" alt="Post Paesaggio">
             </div>
             <div class="post-footer">
                 <div class="likes js-likes">
