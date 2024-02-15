@@ -1,3 +1,5 @@
+// Array con oggetti
+
 const posts = [
     {
         "id": 1,
@@ -55,3 +57,10 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+// Creo costante per contenitore HTML
+const containerElement = document.getElementById("container");
+
+posts.forEach(Curentelement => {
+    console.log(Curentelement);
+});
