@@ -9,7 +9,7 @@ const posts = [
             name: "Bart Simpson",
             image: "./img/profile-1.png"
         },
-        likes: 80,
+        likes: 452,
         created: "2021-06-25"
     },
     {
@@ -20,7 +20,7 @@ const posts = [
             name: "Disco Stu",
             image: "./img/profile-2.png"
         },
-        likes: 120,
+        likes: 834,
         created: "2021-09-03"
     },
     {
@@ -31,7 +31,7 @@ const posts = [
             name: "Nonno Simpson",
             image: "./img/profile-3.png"
         },
-        likes: 78,
+        likes: 950,
         created: "2021-05-15"
     },
     {
@@ -42,7 +42,7 @@ const posts = [
             name: "Homer Simpson",
             image: null
         },
-        likes: 56,
+        likes: 678,
         created: "2021-04-03"
     },
     {
@@ -53,7 +53,7 @@ const posts = [
             name: "Uomo dei Fumetti",
             image: "./img/profile-5.png"
         },
-        likes: 95,
+        likes: 3,
         created: "2021-03-05"
     }
 ];
@@ -95,4 +95,31 @@ posts.forEach(currentElement => {
             </div>            
         </div>
     `
+});
+
+// Dichiaro un array che contiene i bottoni
+const ButtonElements = document.querySelectorAll(".like-button");
+
+// Array per salvare gli ID dei post ai quali è stato messo il like
+const likedPosts = []; 
+
+
+//  Itero il comportamento al click per ogni bottone
+ButtonElements.forEach(function(currentButton) {
+
+    // Eventi al click per ogni bottone
+    currentButton.addEventListener("click", function(event) {
+
+        // Prevengo comporttamnto predefinito
+        event.preventDefault();
+
+        // Aggiungo stile al bottone
+        currentButton.style.backgroundColor = "#0D2F47";
+        currentButton.style.color = "white";
+
+
+        // Aggiungo un like se premo il bottone
+
+
+    });
 });
