@@ -58,6 +58,13 @@ const posts = [
     }
 ];
 
+// Bonus - modifica data 
+posts.forEach(post => {
+    const parts = post.created.split("-");
+    post.created = `${parts[2]}/${parts[1]}/${parts[0]}`;
+});
+
+
 // Creo costante per contenitore HTML
 const containerElement = document.getElementById("container");
 
