@@ -58,11 +58,14 @@ const posts = [
     }
 ];
 
+
+
 // Bonus - modifica data 
 posts.forEach(post => {
     const parts = post.created.split("-");
     post.created = `${parts[2]}/${parts[1]}/${parts[0]}`;
 });
+
 
 
 // Creo costante per contenitore HTML
@@ -75,7 +78,7 @@ posts.forEach(currentElement => {
             <div class="post-header">
                 <div class="post-meta">                    
                     <div class="post-meta-icon">
-                        <img class="profile-pic" src="${currentElement.author.image}" alt="${currentElement.author.name}">                    
+                        ${missingImage(currentElement)}                
                     </div>
                     <div class="post-meta-data">
                         <div class="post-meta-author">${currentElement.author.name}</div>
@@ -103,6 +106,45 @@ posts.forEach(currentElement => {
         </div>
     `
 });
+
+// Bonus - modifica se immagine mancante 
+function missingImage(currentElement) {
+
+    if (currentElement.author.image != null) {
+
+        return `<img class="profile-pic" src="${currentElement.author.image}" alt="${currentElement.author.name}"></img>`;
+
+    } else {
+
+        // salvo il nome dell'autore
+        const authorName = currentElement.author.name;
+
+        // divido la stringa in due parole
+        const authorNameWords = authorName.split(" ");
+        
+        // mi salvo una stringa vuota per le iniziali
+        let initials = "";
+        
+        // per ogni parola aggiungo alla stringa le iniziali
+        authorNameWords.forEach(currentWord => {
+
+            initials += currentWord[0];
+
+        })
+
+        // le restituisco in pagina, dove ho chiamato la mia funzione
+        return `
+            <div class="profile-pic-default">
+                <span>
+                    ${initials}
+                </span>
+            </div>
+        `;
+
+    }
+
+};
+
 
 // Dichiaro un array che contiene i bottoni
 const ButtonElements = document.querySelectorAll(".like-button");
