@@ -120,6 +120,7 @@ h1 {
 }
 
 .like-button-liked {
-    color: #0CD977;
+    color: white;
+    background-color: #0D2F47;
     cursor: default;
 }

@@ -71,6 +71,7 @@ posts.forEach(post => {
 // Creo costante per contenitore HTML
 const containerElement = document.getElementById("container");
 
+// Inserisco nel DOM Elementi HTLM
 posts.forEach(currentElement => {
 
     containerElement.innerHTML += 
@@ -145,42 +146,62 @@ function missingImage(currentElement) {
 
 };
 
+// Funzionamento Like dei Postt
 
-// Dichiaro un array che contiene i bottoni
-const ButtonElements = document.querySelectorAll(".like-button");
+// dichiaro un array vuoto per gli ID
+const likedPosts = [];
 
-// Itero su ciascun elemento e applico il comportamento al click
-ButtonElements.forEach(function(currentButton) {
+// Itero su ciascun elemento
+posts.forEach(currentPost => {
 
-    // Evento al click per ogni bottone
-    currentButton.addEventListener("click", function(event) {
+    // mi memorizzo il pulsante del like del post attuale
+    const currentLikeButton = document.querySelector(`a[data-postid="${currentPost.id}"]`);
 
-        // Prevengo il comportamento predefinito
+    // Applico il comportamento al click
+    currentLikeButton.addEventListener("click", (event) => {
+
+        // blocco il comportamento di default del click
         event.preventDefault();
 
-        // Aggiungo stile al pulsante
-        currentButton.style.backgroundColor = "#0D2F47";
-        currentButton.style.color = "white";
+        // controllo se non abbiamo già messo like al post
+        if (!likedPosts.includes(currentPost.id)) {
 
-        // Ottengo l'ID del post
-        const postId = currentButton.getAttribute("data-postid"); 
+            // inserisco l'id del post nel mio array
+            likedPosts.push(currentPost.id);
 
-        // Ottengo il contatore dei mi piace
-        const likeCounter = document.getElementById(`like-counter-${postId}`);
+            // currentLikeButton: pulsante appena cliccato
+            // aggiungo la classe al pulsante
+            currentLikeButton.classList.add("like-button-liked");
 
+            // aumentare il contatore relativo
+            currentPost.likes++;
 
-        if (likeCounter) {
-            // Ottengo il numero attuale di mi piace
-            let currentLikes = Number(likeCounter.textContent); 
+            // mostro il nuovo numero di like in pagina nell'elemento corretto
+            const currentLikeCounter = document.querySelector(`#like-counter-${currentPost.id}`);
+            currentLikeCounter.innerText = currentPost.likes;
 
-            // Incremento il numero di mi piace
-            currentLikes++; 
+        } else {
+            // Al click su un pulsante "Mi Piace" di un post, 
+            // se abbiamo già cliccato dobbiamo decrementare il contatore 
+            // e cambiare il colore del bottone.
 
-            // Aggiorno il contatore
-            likeCounter.textContent = currentLikes; 
+            // rimuovo l'id del post dall'array dei post piaciuti
+            // capire quale sia l'indice che mi indica l'id del post che ho appena cliccato
+            const indexOfLikedPost = likedPosts.indexOf(currentPost.id);
+            // rimuovo l'elemento selezionato dall'array dei like
+            likedPosts.splice(indexOfLikedPost, 1);
+
+            // rimuovo la classe che lo stilizza come cliccato
+            currentLikeButton.classList.remove("like-button-liked");
+
+            // diminuire il contatore relativo
+            currentPost.likes--;
+
+            // mostro il nuovo numero di like in pagina nell'elemento corretto
+            const currentLikeCounter = document.querySelector(`#like-counter-${currentPost.id}`);
+            currentLikeCounter.innerText = currentPost.likes;
         }
-        
 
+        console.log('like:', likedPosts);
     });
-
 });
